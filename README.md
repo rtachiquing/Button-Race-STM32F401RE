@@ -7,6 +7,8 @@ A simple two-player embedded video game for the STM32F401RE microcontroller. Pla
 ## 🎮 Project Description
 
 Each player controls a character displayed on their respective line of a 16x2 LCD display. The characters move from left to right as players press their buttons. The faster you press, the faster your character moves. The game uses external interrupts (EXTI) to detect button presses, and timers to calculate press frequency and generate PWM signals proportional to race progress.
+![Uploading image.png…]()
+
 
 ---
 
