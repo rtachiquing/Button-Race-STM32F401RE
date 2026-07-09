@@ -80,6 +80,19 @@ The implementation must include, at minimum, the following features:
 - Display a victory animation if the player reaches the finish line before the enemy.
 - Play a continuous chase-themed melody using a passive buzzer during Escape Mode.
 - Stop the melody immediately when the game ends, either by victory or defeat.
+
+#### Melody example:
+| Note | Frequency (Hz)  | Estimated time (ms) |
+| ---- | --------------- | ------------------- |
+| E5   | 659             | 180                 |
+| G5   | 784             | 180                 |
+| A5   | 880             | 180                 |
+| G5   | 784             | 180                 |
+| E5   | 659             | 180                 |
+| D5   | 587             | 180                 |
+| E5   | 659             | 180                 |
+| B4   | 494             | 250                 |
+
 ---
 
 ## 📦 Project Structure
