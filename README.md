@@ -31,57 +31,57 @@ Each player controls a character displayed on their respective line of a 16x2 LC
 - Independent PWM for each player, indicating individual progress.
 - Time-limited mode: race must be completed within a predefined time (e.g., 30 seconds).
 
-#### ⭐ Versión Extendida Alternativa 2 – Escape
+#### ⭐ Extended Version Alternative 2 – Escape Mode
 
-En esta versión extendida, el juego incorpora una nueva mecánica de persecución que incrementa la dificultad una vez que el jugador ha avanzado lo suficiente en el recorrido.
+This alternative introduces a new **Escape Mode** that adds a chasing mechanic to increase the game's difficulty after the player has made significant progress.
 
-Cuando el jugador alcance la casilla 10, el juego entrará automáticamente en el Modo Persecución. A partir de ese momento aparecerá un enemigo en la primera casilla del tablero, el cual avanzará automáticamente hacia el jugador a una velocidad constante, independientemente de las acciones del usuario.
+Once the player reaches **position 10**, the game automatically enters **Escape Mode**. An enemy character appears at the beginning of the track and starts moving toward the player at a **constant speed**, regardless of the player's actions.
 
-El jugador continuará desplazándose mediante los botones del sistema, mientras que el enemigo realizará movimientos periódicos utilizando una base de tiempo implementada con un temporizador del microcontrolador.
+The player continues moving using the push buttons, while the enemy advances periodically using a hardware timer or another timing mechanism implemented on the STM32F401RE.
 
-Condición de derrota
+##### 💀 Defeat Condition
 
-Si el enemigo alcanza la misma casilla que ocupa el jugador (o una posición superior), la partida finalizará inmediatamente.
+If the enemy reaches the same position as the player (or moves beyond it), the game ends immediately.
 
-El LCD de 16×2 deberá mostrar un mensaje de:
+The 16×2 LCD must display a blinking message such as:
 
-#### *** GAME OVER ***
+#### **GAME OVER**
 
-Este mensaje deberá presentarse mediante un efecto de parpadeo (encendiendo y apagando el texto o alternándolo con una pantalla en blanco) durante algunos segundos para indicar claramente la derrota del jugador.
+The message should blink for several seconds by alternating between the text and a blank screen (or any similar visual effect) to clearly indicate that the player has been caught.
 
-Al finalizar la animación, el sistema deberá regresar al menú principal o quedar listo para iniciar una nueva partida.
+After the animation finishes, the system should return to the main menu or wait for a new game to begin.
 
-Condición de victoria
+##### 🏆 Victory Condition
 
-Si el jugador consigue llegar a la casilla final antes de ser alcanzado por el enemigo, el juego deberá mostrar una animación de victoria en el LCD de 16×2.
+If the player reaches the finish line before being caught by the enemy, a victory animation must be displayed on the 16×2 LCD.
 
-La animación puede consistir en el desplazamiento del mensaje de felicitación, un efecto de parpadeo, o cualquier otra secuencia que indique claramente que el jugador ha ganado la partida.
+The animation may include scrolling text, blinking messages, or any other visual effect that clearly indicates the player has successfully escaped.
 
-Una vez concluida la animación, el sistema volverá al menú principal para permitir el inicio de un nuevo juego.
+After the victory sequence, the system should return to the main menu and be ready for a new game.
 
-Melodía durante la persecución
+##### 🎵 Background Chase Music
 
-Mientras el juego permanezca en el Modo Persecución, un buzzer pasivo deberá reproducir continuamente una melodía sencilla generada mediante PWM y un temporizador del STM32F401RE.
+While **Escape Mode** is active, a passive buzzer must continuously play a simple looping melody generated using PWM and one of the STM32F401RE timers.
 
-La melodía deberá transmitir una sensación de tensión o persecución y reproducirse en un ciclo continuo hasta que ocurra una de las siguientes condiciones:
+The melody should create a feeling of urgency or pursuit and continue playing until one of the following events occurs:
 
-El jugador llegue a la meta (victoria).
-El enemigo alcance al jugador (derrota).
+- The player reaches the finish line (Victory).
+- The enemy catches the player (Game Over).
 
-La secuencia de notas puede ser diseñada libremente por el estudiante, siempre que mantenga una duración breve y pueda repetirse de forma continua durante toda la fase de persecución.
+Students are free to compose their own melody, provided that it is short, repetitive, and suitable for continuous playback during the chase sequence.
 
-#### Requisitos mínimos
+##### ✅ Minimum Requirements
 
-La implementación deberá cumplir, como mínimo, con los siguientes puntos:
+The implementation must include, at minimum, the following features:
 
-- Activar el Modo Persecución cuando el jugador alcance la casilla 10.
-- Generar un enemigo que avance automáticamente a una velocidad constante.
-- Permitir que el jugador continúe desplazándose mediante los botones del sistema.
-- Detectar la colisión entre el jugador y el enemigo.
-- Mostrar una animación de GAME OVER en el LCD de 16×2 cuando el enemigo alcance al jugador.
-- Mostrar una animación de victoria cuando el jugador llegue a la meta antes que el enemigo.
-- Reproducir una melodía de persecución utilizando un buzzer pasivo durante toda la fase de persecución.
-- Detener la melodía cuando el juego finalice, ya sea por victoria o por derrota.
+- Automatically activate **Escape Mode** when the player reaches position 10.
+- Spawn an enemy that moves automatically at a constant speed.
+- Allow the player to continue advancing using the push buttons.
+- Detect collisions between the player and the enemy.
+- Display a blinking **GAME OVER** animation on the 16×2 LCD when the enemy catches the player.
+- Display a victory animation if the player reaches the finish line before the enemy.
+- Play a continuous chase-themed melody using a passive buzzer during Escape Mode.
+- Stop the melody immediately when the game ends, either by victory or defeat.
 ---
 
 ## 📦 Project Structure
