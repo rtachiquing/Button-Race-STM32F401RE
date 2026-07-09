@@ -43,9 +43,7 @@ The player continues moving using the push buttons, while the enemy advances per
 
 If the enemy reaches the same position as the player (or moves beyond it), the game ends immediately.
 
-The 16×2 LCD must display a blinking message such as:
-
-#### **GAME OVER**
+The 16×2 LCD must display a blinking message such as: #### **GAME OVER**
 
 The message should blink for several seconds by alternating between the text and a blank screen (or any similar visual effect) to clearly indicate that the player has been caught.
 
