@@ -31,7 +31,7 @@ Each player controls a character displayed on their respective line of a 16x2 LC
 - Independent PWM for each player, indicating individual progress.
 - Time-limited mode: race must be completed within a predefined time (e.g., 30 seconds).
 
-#### ⭐ Extended Version Alternative 2 – Escape Mode
+### ⭐ Extended Version Alternative 2 – Escape Mode
 
 This alternative introduces a new **Escape Mode** that adds a chasing mechanic to increase the game's difficulty after the player has made significant progress.
 
